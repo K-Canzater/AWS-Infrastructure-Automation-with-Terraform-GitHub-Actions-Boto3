@@ -17,7 +17,7 @@ resource "aws_iam_group" "group" {
 }
 
 
-#Attach IAM user to IAM group
+#Attach the IAM user to the IAM group
 resource "aws_iam_group_membership" "membership" {
   name  = "${var.iam_group}-membership"
   users = [aws_iam_user.user.name]
@@ -26,8 +26,7 @@ resource "aws_iam_group_membership" "membership" {
 }
 
 
-#Attach policy to IAM group
-#Attach Policy
+#Attach the policy to IAM group
 resource "aws_iam_group_policy_attachment" "policy_attached" {
   group      = aws_iam_group.group.name
   policy_arn = var.iam_policy_attachment
