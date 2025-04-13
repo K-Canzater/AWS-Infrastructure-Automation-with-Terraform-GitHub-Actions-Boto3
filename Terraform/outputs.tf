@@ -35,3 +35,23 @@ output "vpc_id" {
   value       = module.VPC.vpc_id
 
 }
+
+output "subnet_id" {
+  description = "The unique identifier of the subnet."
+  value       = module.VPC.subnet_id
+}
+
+output "internet_gateway_id" {
+  description = "The unique identifier of the internet gateway."
+  value       = module.VPC.internet_gateway_id
+}
+
+output "route_table_id" {
+  description = "The unique identifier of the route table."
+  value       = module.VPC.route_table_id
+}
+
+output "security_group_id" {
+  description = "The unique identifier of the security group."
+  value       = module.VPC.security_group_id
+}
