@@ -17,7 +17,7 @@ resource "aws_iam_group" "group" {
 }
 
 
-#Attach the IAM user to the IAM group
+#Attach IAM User to IAM group
 resource "aws_iam_group_membership" "membership" {
   name  = "${var.iam_group}-membership"
   users = [aws_iam_user.user.name]

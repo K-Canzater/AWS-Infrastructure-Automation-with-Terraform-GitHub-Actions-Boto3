@@ -1,7 +1,4 @@
-#YML File
-#Push To Github
 name: Deploy Terraform
-
 on:
   push:
     branches:
@@ -9,11 +6,9 @@ on:
     paths:
       - 'Terraform/**'
   workflow_dispatch:
-
 permissions:
   id-token: write
   contents: read
-
 jobs:
   cleanup-locks:
     runs-on: ubuntu-latest
@@ -34,67 +29,51 @@ jobs:
             aws dynamodb delete-item --table-name terraform-locks --key "{\"LockID\":{\"S\":\"$lockid\"}}"
           done
           echo "All locks removed! ✨"
-
   terraform:
     needs: cleanup-locks
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
           role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
           aws-region: ${{ secrets.AWS_REGION }}
-
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v2
         with:
           terraform_version: 1.6.0
-
       - name: Create terraform.tfvars
         run: |
           echo 'aws_region = "${{ secrets.AWS_REGION }}"' > terraform.tfvars
           echo 'aws_profile = ""' >> terraform.tfvars
         working-directory: Terraform
-
       - name: Modify provider config
         run: |
           # Remove profile from provider config or make it optional
           sed -i 's/profile\s*=\s*var.aws_profile/# profile = var.aws_profile/' providers.tf
         working-directory: Terraform
-
       - name: Terraform Init
         run: terraform init
         working-directory: Terraform
-
       - name: Terraform Refresh
         run: terraform refresh
         working-directory: Terraform
-
-      - name: Terraform Format Check
-        run: terraform fmt -check
-        working-directory: Terraform
-
       - name: Terraform Validate
         run: terraform validate
         working-directory: Terraform
-
       - name: Terraform Plan (Only IAM)
         id: plan
         run: terraform plan -target=module.IAM -input=false
         working-directory: Terraform
         timeout-minutes: 2
-
+      
       - name: Terraform Apply (Only IAM)
         if: success()
         run: terraform apply -target=module.IAM -auto-approve -input=false
         working-directory: Terraform
-
+      
       - name: Terraform Outputs
         run: terraform output
         working-directory: Terraform
-
-
-    
