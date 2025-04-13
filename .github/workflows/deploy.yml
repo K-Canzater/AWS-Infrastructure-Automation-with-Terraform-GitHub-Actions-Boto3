@@ -53,8 +53,8 @@ jobs:
 
       - name: Create terraform.tfvars
         run: |
-          echo "aws_region = \"${{ secrets.AWS_REGION }}\"" > terraform.tfvars
-          echo "aws_profile = \"\"" >> terraform.tfvars
+          echo 'aws_region = "${{ secrets.AWS_REGION }}"' > terraform.tfvars
+          echo 'aws_profile = ""' >> terraform.tfvars
         working-directory: Terraform
 
       - name: Modify provider config
