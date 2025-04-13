@@ -16,7 +16,7 @@ module "S3" {
 
 
   source            = "./modules/S3"
-  bucket_name       = "cloudinfra-dev-KC"
+  bucket_name       = "cloudinfra-dev-kc"
   enable_versioning = true
 
 }
