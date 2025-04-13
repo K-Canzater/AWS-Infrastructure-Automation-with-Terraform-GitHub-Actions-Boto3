@@ -63,15 +63,15 @@ jobs:
       - name: Terraform Validate
         run: terraform validate
         working-directory: Terraform
-      - name: Terraform Plan (Only IAM)
+      - name: Terraform Plan (Only S3)
         id: plan
-        run: terraform plan -target=module.IAM -input=false
+        run: terraform plan -target=module.S3 -input=false
         working-directory: Terraform
         timeout-minutes: 2
       
-      - name: Terraform Apply (Only IAM)
+      - name: Terraform Apply (Only S3)
         if: success()
-        run: terraform apply -target=module.IAM -auto-approve -input=false
+        run: terraform apply -target=module.S3 -auto-approve -input=false
         working-directory: Terraform
       
       - name: Terraform Outputs
