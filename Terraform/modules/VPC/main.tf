@@ -1,4 +1,4 @@
-#Create the VPC
+#Create The VPC
 resource "aws_vpc" "vpc" {
 
   cidr_block           = var.cidr_block_vpc
@@ -12,7 +12,7 @@ resource "aws_vpc" "vpc" {
 }
 
 
-#Create the Subnet
+#Create The Subnet
 resource "aws_subnet" "subnet" {
   vpc_id = aws_vpc.vpc.id
 
@@ -27,7 +27,7 @@ resource "aws_subnet" "subnet" {
 }
 
 
-#Create the Internet Gateway
+#Create The Internet Gateway
 resource "aws_internet_gateway" "internet" {
   vpc_id = aws_vpc.vpc.id
 
@@ -38,7 +38,7 @@ resource "aws_internet_gateway" "internet" {
 }
 
 
-#Create the Route Table
+#Create The Route Table
 resource "aws_route_table" "route_table" {
   vpc_id = aws_vpc.vpc.id
 
@@ -54,7 +54,7 @@ resource "aws_route_table" "route_table" {
 }
 
 
-#Create the Route Table Association
+#Create The Route Table Association
 resource "aws_route_table_association" "route_association" {
   subnet_id      = aws_subnet.subnet.id
   route_table_id = aws_route_table.route_table.id
@@ -62,7 +62,7 @@ resource "aws_route_table_association" "route_association" {
 }
 
 
-#Create the Security Group
+#Create The Security Group
 
 resource "aws_security_group" "security_group" {
   vpc_id = aws_vpc.vpc.id

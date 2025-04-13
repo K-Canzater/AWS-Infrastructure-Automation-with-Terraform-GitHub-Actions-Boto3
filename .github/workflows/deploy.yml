@@ -63,15 +63,15 @@ jobs:
       - name: Terraform Validate
         run: terraform validate
         working-directory: Terraform
-      - name: Terraform Plan (Only S3)
+      - name: Terraform Plan (Only VPC)
         id: plan
-        run: terraform plan -target=module.S3 -input=false
+        run: terraform plan -target=module.VPC -input=false
         working-directory: Terraform
         timeout-minutes: 2
       
-      - name: Terraform Apply (Only S3)
+      - name: Terraform Apply (Only VPC)
         if: success()
-        run: terraform apply -target=module.S3 -auto-approve -input=false
+        run: terraform apply -target=module.VPC -auto-approve -input=false
         working-directory: Terraform
       
       - name: Terraform Outputs
