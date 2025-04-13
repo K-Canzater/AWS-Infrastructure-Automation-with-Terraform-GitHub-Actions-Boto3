@@ -55,3 +55,29 @@ output "security_group_id" {
   description = "The unique identifier of the security group."
   value       = module.VPC.security_group_id
 }
+
+#EC2 Outputs
+output "ec2_public_ip" {
+  description = "The public IP of the EC2 instance"
+  value       = module.EC2.public_ip
+}
+
+output "ec2_private_ip" {
+  description = "The private IP of the EC2 instance"
+  value       = module.EC2.private_ip
+}
+
+output "ec2_instance_id" {
+  description = "The instance ID of the EC2 instance"
+  value       = module.EC2.instance_id
+}
+
+output "ec2_iam_role_name" {
+  description = "The IAM role name associated with the EC2 instance"
+  value       = module.EC2.iam_role_name
+}
+
+output "ec2_instance_profile_name" {
+  description = "The instance profile name associated with the EC2 instance"
+  value       = module.EC2.instance_profile_name
+}

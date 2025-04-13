@@ -31,3 +31,19 @@ module "VPC" {
 
 
 }
+
+# EC2
+module "EC2"{
+
+    source = "./modules/EC2"
+    iam_role_name = "ec2-ssm-role"
+    instance_profile_name = "ec2-ssm-profile"
+    ami_id = "ami-00a929b66ed6e0de6"
+    instance_type = "t2.micro"
+    subnet_id = "subnet-0d1c26c4a49adf178"
+    security_group_id = "sg-00913c4ea83601f21"
+    ec2_name = "dev-ec2-instance"
+
+
+
+}
