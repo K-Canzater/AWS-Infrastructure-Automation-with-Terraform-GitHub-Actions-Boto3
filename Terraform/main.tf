@@ -20,3 +20,14 @@ module "S3" {
   enable_versioning = true
 
 }
+
+module "VPC" {
+
+  source                   = "./modules/VPC"
+  cidr_block_vpc           = "10.0.0.0/16"
+  cidr_block_subnet        = "10.0.0.0/24"
+  availability_zone_subnet = "us-east-1a"
+  myip                     = "207.213.57.120/32"
+
+
+}

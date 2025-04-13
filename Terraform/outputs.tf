@@ -28,3 +28,10 @@ output "aws_bucket_arn" {
   description = "The arn of bucket"
   value       = module.S3.aws_bucket_arn
 }
+
+# VPC Outputs
+output "vpc_id" {
+  description = "The ID of the VPC"
+  value       = module.VPC.vpc_id
+
+}
