@@ -10,3 +10,13 @@ module "IAM" {
 
 
 }
+
+
+module "S3" {
+
+
+  source            = "./modules/S3"
+  bucket_name       = "cloudinfra-dev-KC"
+  enable_versioning = true
+
+}

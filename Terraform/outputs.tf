@@ -15,3 +15,16 @@ output "aws_iam_policy_attachment_from_module" {
   value       = module.IAM.iam_policy_attachment
 
 }
+
+#S3 Outputs
+
+output "aws_s3_bucket_from_module" {
+  description = "The Bucket Name"
+  value       = module.S3.s3_bucket
+
+}
+
+output "aws_bucket_arn" {
+  description = "The arn of bucket"
+  value       = module.S3.aws_bucket_arn
+}
