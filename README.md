@@ -29,7 +29,9 @@ It reflects the workflow used in real cloud engineering roles — from Infrastru
 - ✅ Route tables and internet gateway  
 - ✅ EC2 instance with Security Group  
 - ✅ S3 bucket  
-- ✅ IAM role and policy  
+- ✅ IAM User
+- ✅ IAM Group
+- ✅ IAM Role
 - ✅ GitHub Actions workflow to deploy Terraform code
 
 ---
