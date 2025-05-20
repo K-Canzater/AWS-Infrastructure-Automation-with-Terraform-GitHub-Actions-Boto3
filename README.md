@@ -45,29 +45,7 @@ These Python scripts were written to interact with AWS resources using Boto3:
 - `describe_instance.py` – fetches instance state info  
 - `list_objects.py` – lists objects inside the S3 bucket  
 - `delete_objects.py` – deletes objects from the S3 bucket
-
----
-
-## 📸 Screenshots
-
-**1. GitHub Setup**  
-- GitHub repo with files and structure  
-- GitHub Actions showing successful CI runs  
-- GitHub Secrets (blurred)  
-
-**2. Terraform Deployment**  
-- `terraform plan` and `terraform apply` output from Actions logs  
-
-**3. AWS Console Screenshots**  
-- VPC, Subnets, Route Tables  
-- EC2 instance and Security Group  
-- S3 bucket  
-- IAM users, IAM group, and the policy attached to that group
-  
-
-**4. Boto3 Script Usage**  
-- Running Python script in terminal  
-- Output showing resource changes or status  
+ 
 
 ---
 
