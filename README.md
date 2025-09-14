@@ -1,6 +1,7 @@
 # ☁️ AWS Infrastructure Automation with Terraform, GitHub Actions & Boto3
 
 **Project Overview:**
+
 This project showcases **automated validation and management of AWS infrastructure** using Terraform, Python (Boto3), and GitHub Actions. The workflows emphasize **repeatability, reliability, and error detection**, key principles in QA for ensuring systems behave as expected.
 
 ---
